@@ -41,15 +41,16 @@ export class Tab2Page {
       this.loadShoppingList();
     
   }
-  tickOffItem( id:number ){
-    this.storage.toggleItemStatus(id)
-    .then((response) => {
-      if( response == true ){
+  deleteItem( id:number ){
+    this.storage.deleteItem(id)
+    .then( (response) => {
+      if( response ){
         this.loadShoppingList();
       }
     })
-    .catch( (error) => { console.log(error) });
-  }
+    .catch( (error) => {
+      console.log(error)
+    });
 }
 
 
@@ -57,3 +58,4 @@ export class Tab2Page {
 
 
 
+}

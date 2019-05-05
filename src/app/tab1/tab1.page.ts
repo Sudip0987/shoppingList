@@ -9,7 +9,7 @@ import { StorageService } from '../storage.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page {
   tab1Form:FormGroup;
   tab1List:Array<Item> = [];
   //allow us to access the sliding item inside this class
@@ -42,12 +42,14 @@ export class Tab1Page implements OnInit{
     
   }
   tickOffItem( id:number ){
-    this.storage.toggleItemStatus(id)
-    .then((response) => {
-      if( response == true ){
+    this.storage.deleteItem(id)
+    .then( (response) => {
+      if( response ){
         this.loadShoppingList();
       }
     })
-    .catch( (error) => { console.log(error) });
+    .catch( (error) => {
+      console.log(error)
+    });
   }
 }
