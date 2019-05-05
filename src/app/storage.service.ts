@@ -40,11 +40,14 @@ export class StorageService {
  //   this.saveList();
   }
   deleteItem( id:number ){
+    console.log("called");
+
     return new Promise( (resolve,reject) => {
       this.list.forEach( ( item, index ) => {
         if( item.id == id ){
           this.list.splice( index, 1 );
           resolve( true );
+          this.saveList();
         }
       });
       reject( new Error('item not found') );
