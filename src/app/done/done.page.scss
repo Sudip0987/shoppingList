@@ -1,0 +1,15 @@
+ion-list{
+  ion-item{
+    ion-buttons{
+      ion-button{
+        position:relative;
+        z-index:999;
+      }
+    }
+  }
+  ion-item-sliding{
+    ion-item-option{
+      width:64px;
+    }
+  }
+}

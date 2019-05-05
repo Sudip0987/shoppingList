@@ -1,9 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
+  <ion-toolbar color="primary">
+    Shopped Items
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of this.shoppedList; let i = index" #{{index}}>
+      <ion-item>
+        <ion-label>
+        {{item.name}}
+        
+          
+        </ion-label>
+        <ion-buttons slot="end" >
+          <ion-checkbox value="true">
+          </ion-checkbox>
+          <ion-button>
+            Tick Off
+          </ion-button>
+          
+        </ion-buttons>
+
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="openReminderDialog(item.name)">
+          <ion-icon name="time"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
