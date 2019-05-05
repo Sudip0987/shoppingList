@@ -42,7 +42,7 @@ export class Tab1Page {
     
   }
   tickOffItem( id:number ){
-    this.storage.deleteItem(id)
+    this.storage.toggleItemStatus(id)
     .then( (response) => {
       if( response ){
         this.loadShoppingList();
