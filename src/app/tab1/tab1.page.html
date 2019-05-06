@@ -42,7 +42,7 @@
                 <div class =  "start">
                     
                        
-                        <ion-button type="submit" expand="block" (click) = "addItem(itemName,shopAt,price)">
+                        <ion-button type="submit" expand="block" (click) = "addItem(itemName,shopAt)">
                           Add
                         </ion-button>
 
@@ -73,16 +73,16 @@
           </ion-row>
           
         </ion-grid>
-        <div style = "border:1px solid lightblue;margin-left:10px;margin-right: 10px"></div>
+        <div style = "border:1px solid lightgrey;margin-left:10px;margin-right: 10px"></div>
         
-        <ion-list>
+        <ion-list >
 
             <ion-item-sliding *ngFor="let item of this.tab1List; let i = index" #{{index}}>
               <ion-card>
              
               <ion-grid>
                
-                  <ion-row justify-content-center align-items-center >
+                  <ion-row justify-content-center align-items-center style = "font-size: 16px;" >
                     
                       <ion-col>
                         <div class =  "start">
