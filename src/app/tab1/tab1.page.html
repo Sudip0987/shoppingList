@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-title>Add new Item</ion-title>
+      <ion-title>Add Item</ion-title>
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <form [formGroup]="tab1Form" (submit)="addItem(tab1Form.value.tab1)">
+    <form [formGroup]="tab1Form" style = "margin-left: 10px;margin-right:10px" >
       <br>
       <ion-grid>
-        <ion-row>
+        <ion-row justify-content-center align-items-center>
           
           <ion-col>
             <div class =  "start">
@@ -18,12 +18,12 @@
           </ion-col>
           <ion-col>
               <div class =  "center">
-                  <ion-input type="text" style= "border-radius:5px" placeholder="Item Name" color="dark" clear-input formControlName="tab1"></ion-input>
+                  <ion-input type="text" [(ngModel)]="itemName" style= "border-radius:5px" placeholder="Item Name" color="dark" clear-input formControlName="tab1"></ion-input>
 
               </div>
             </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row justify-content-center align-items-center>
             <ion-col>
               <div class =  "start">
                   <ion-label sty>Shop At</ion-label> 
@@ -31,57 +31,89 @@
             </ion-col>
             <ion-col>
                 <div class =  "center">
-                    <ion-input type="text" style= "border-radius:5px" placeholder="Shop name" color="dark" clear-input formControlName="tab1"></ion-input>
+                    <ion-input type="text" [(ngModel)]="shopAt" style= "border-radius:5px" placeholder="Shop name" color="dark" clear-input formControlName="tab1"></ion-input>
   
                 </div>
               </ion-col>
           </ion-row>
-          <ion-row>
-              <ion-col>
-                <div class =  "start">
-                    <ion-label sty>Price</ion-label> 
-                </div>
-              </ion-col>
-              <ion-col>
-                  <div class =  "center">
-                      <ion-input type="text" style= "border-radius:5px" placeholder="Item price" color="dark" clear-input formControlName="tab1"></ion-input>
-    
-                  </div>
-                </ion-col>
-            </ion-row>
-        <ion-row>
+         
+        <ion-row justify-content-center align-items-center>
             <ion-col>
-                <div class =  "end">
+                <div class =  "start">
                     
-                        <ion-button type="submit" expand="block"  [disabled]="!tab1Form.valid">
+                       
+                        <ion-button type="submit" expand="block" (click) = "addItem(itemName,shopAt,price)">
                           Add
                         </ion-button>
 
                 </div>
               </ion-col>
-        </ion-row>
-      </ion-grid>
-      
-       
+          </ion-row>
+        </ion-grid>
       </form>
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of this.tab1List; let i = index" #{{index}}>
       <ion-card>
-      <ion-item>
-        <ion-label>
-        {{item.name}}
+      <ion-grid>
+          <ion-row style = "margin:5px;font-size: 17px;">
+            <ion-col>
+              <div class = "start">
+                 <b>Item name</b>
+              </div>
+            </ion-col>
+            <ion-col>
+               <div class = "start">
+                  <b>Shop At</b>
+               </div>
+             </ion-col>
+             <ion-col>
+                 <div class = "start">
+                    <b></b>
+                 </div>
+               </ion-col>
+          </ion-row>
           
-        </ion-label>
+        </ion-grid>
+        <div style = "border:1px solid lightblue;margin-left:10px;margin-right: 10px"></div>
         
-          <ion-button value="item.status" (click)="this.tickOffItem(item.id)">
-            Tick Off
-          </ion-button>
-          
+        <ion-list>
 
-      </ion-item>
-    </ion-card>
-      
-    </ion-item-sliding>
-  </ion-list>
+            <ion-item-sliding *ngFor="let item of this.tab1List; let i = index" #{{index}}>
+              <ion-card>
+             
+              <ion-grid>
+               
+                  <ion-row justify-content-center align-items-center >
+                    
+                      <ion-col>
+                        <div class =  "start">
+                            <ion-label class = "center">
+                                {{item.name}}
+                                </ion-label>
+        
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                          <div class =  "center">
+                              <ion-label class = "center">
+                                  {{item.shopAt}}
+                                  </ion-label>
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class =  "end">
+                              <ion-button value="item.status" (click)="this.tickOffItem(item.id)">
+                    Tick Off
+                  </ion-button>
+                            </div>
+                          </ion-col>
+                    </ion-row>
+                  </ion-grid>
+            </ion-card>
+              
+            </ion-item-sliding>
+          </ion-list>
+
+
+      </ion-card>
+     
 </ion-content>

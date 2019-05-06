@@ -34,13 +34,7 @@ export class Tab2Page {
     this.shoppedList = this.storage.getFilteredList(true);
     this.storage.sortList( this.shoppedList );
   }
-  addItem( name:string ){
-    console.log(name);
-      this.storage.addItem( name );
-      this.tab2Form.reset();
-      this.loadShoppingList();
-    
-  }
+ 
   deleteItem( id:number ){
     this.storage.deleteItem(id)
     .then( (response) => {

@@ -33,11 +33,13 @@ export class StorageService {
       return item2.id - item1.id;
     });
   }
-  addItem( name:string ){
-    let item:Item = {name: name, id: new Date().getTime(), done: 0, status: false };
+
+  storeNewItem( name:string,shopAt:string){
+    let item:Item = {name: name,shopAt:shopAt, id: new Date().getTime(), done: 0, status: false };
+    console.log(name+"///" +shopAt);
     //this.list$.pipe( map( list => list.push(item) ));
     this.list.push( item );
- //   this.saveList();
+   this.saveList();
   }
   deleteItem( id:number ){
     console.log("called");

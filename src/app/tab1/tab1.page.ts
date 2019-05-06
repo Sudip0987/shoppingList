@@ -34,13 +34,7 @@ export class Tab1Page {
     this.tab1List = this.storage.getFilteredList(false);
     this.storage.sortList( this.tab1List );
   }
-  addItem( name:string ){
-    console.log(name);
-      this.storage.addItem( name );
-      this.tab1Form.reset();
-      this.loadShoppingList();
-    
-  }
+  
   tickOffItem( id:number ){
     this.storage.toggleItemStatus(id)
     .then( (response) => {
